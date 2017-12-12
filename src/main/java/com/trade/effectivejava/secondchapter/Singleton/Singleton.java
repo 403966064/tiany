@@ -14,8 +14,14 @@ public class Singleton {
         return singleton;
     }
     /**
-     *
+     *2
      */
     public static Singleton singleton2 = new Singleton();
     private Singleton(){}
+
+    public enum Instance{
+        INSTANCE
+    }
+
+
 }
