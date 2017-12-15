@@ -10,7 +10,7 @@ public class Main {
     private static ExecutorService executor = Executors.newFixedThreadPool(50);
 
     public static void main(String[] args) {
-        for(int i = 0; i <10; i++) {
+        for(int i = 0; i <100; i++) {
             executor.submit(new Runnable() {
                 public void run() {
                     new Synchronized().doSomeThing();
