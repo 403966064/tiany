@@ -9,4 +9,14 @@
     <bean id="webAppVersion" class="java.lang.String">
         <constructor-arg value="1.0.0"></constructor-arg>
     </bean>
+    <!--<bean id="djNewsProvider" class = "com.trade.spring.ForexNewsProvider">
+        <constructor-arg index="0">
+            <ref bean="djNewsListener"/>
+        </constructor-arg>
+        <constructor-arg index="1">
+            <ref bean="djNewsRegister"/>
+        </constructor-arg>
+    </bean>-->
+    <bean id="djNewsListener" class="com.trade.spring.service.impl.DowJonsNewsListener"/>
+    <bean id="djNewsRegister" class="com.trade.spring.service.impl.DowJonsNewsRegister"/>
 </beans>
