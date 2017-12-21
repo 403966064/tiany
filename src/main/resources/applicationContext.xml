@@ -6,17 +6,23 @@
 
     <context:component-scan base-package="com.trade.spring" />
 
-    <bean id="webAppVersion" class="java.lang.String">
+    <!-- autowired注入所需要的类
+    <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>-->
+
+    <!--包含了autowired 和 resource
+    <context:annotation-config></context:annotation-config>-->
+
+    <!--<bean id="webAppVersion" class="java.lang.String">
         <constructor-arg value="1.0.0"></constructor-arg>
     </bean>
-    <!--<bean id="djNewsProvider" class = "com.trade.spring.ForexNewsProvider">
-        <constructor-arg index="0">
+    <bean id="djNewsProvider" class = "com.trade.spring.ForexNewsProvider">
+        &lt;!&ndash;<constructor-arg index="0">
             <ref bean="djNewsListener"/>
         </constructor-arg>
         <constructor-arg index="1">
             <ref bean="djNewsRegister"/>
-        </constructor-arg>
-    </bean>-->
+        </constructor-arg>&ndash;&gt;
+    </bean>
     <bean id="djNewsListener" class="com.trade.spring.service.impl.DowJonsNewsListener"/>
-    <bean id="djNewsRegister" class="com.trade.spring.service.impl.DowJonsNewsRegister"/>
+    <bean id="djNewsRegister" class="com.trade.spring.service.impl.DowJonsNewsRegister"/>-->
 </beans>

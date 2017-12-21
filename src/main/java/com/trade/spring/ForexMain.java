@@ -2,13 +2,13 @@ package com.trade.spring;
 
 import com.trade.spring.service.impl.DowJonsNewsListener;
 import com.trade.spring.service.impl.DowJonsNewsRegister;
-import org.springframework.beans.MutablePropertyValues;
-import org.springframework.beans.PropertyValue;
 import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.config.ConstructorArgumentValues;
 import org.springframework.beans.factory.support.AbstractBeanDefinition;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
-import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.beans.factory.support.RootBeanDefinition;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * Created by tiany on 2017/12/20.
@@ -24,14 +24,14 @@ public class ForexMain {
 //        ForexNewsProvider newsProvider = (ForexNewsProvider) beanFactory.getBean("djNewsProvider");
 //        newsProvider.getAndRegisterNews();
 
-//        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-//        ForexNewsProvider newsProvider = (ForexNewsProvider) context.getBean("djNewsProvider");
-//        newsProvider.getAndRegisterNews();
+        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        ForexNewsProvider newsProvider = (ForexNewsProvider) context.getBean("forexNewsProvider");
+        newsProvider.getAndRegisterNews();
 
-        DefaultListableBeanFactory beanRegister = new DefaultListableBeanFactory();
+        /*DefaultListableBeanFactory beanRegister = new DefaultListableBeanFactory();
         BeanFactory container = (BeanFactory)bindViaCode(beanRegister);
         ForexNewsProvider provider = (ForexNewsProvider)container.getBean("djNewsProvider");
-        provider.getAndRegisterNews();
+        provider.getAndRegisterNews();*/
     }
 
     public static BeanFactory bindViaCode(BeanDefinitionRegistry beanDefinitionRegistry){
@@ -44,17 +44,18 @@ public class ForexMain {
         /**
          * 构造方法注入
          */
-        /*ConstructorArgumentValues argValues = new ConstructorArgumentValues();
+        ConstructorArgumentValues argValues = new ConstructorArgumentValues();
         argValues.addIndexedArgumentValue(0,newsListener);
         argValues.addIndexedArgumentValue(1,newsRegister);
-        newsProvider.setConstructorArgumentValues(argValues);*/
+        newsProvider.setConstructorArgumentValues(argValues);
         /**
          * setter方法注入
          */
-        MutablePropertyValues propertyValues = new MutablePropertyValues();
+       /* MutablePropertyValues propertyValues = new MutablePropertyValues();
         propertyValues.addPropertyValue(new PropertyValue("newsListener",newsListener));
         propertyValues.addPropertyValue(new PropertyValue("newsRegister",newsRegister));
         newsProvider.setPropertyValues(propertyValues);
+        */
         return (BeanFactory) beanDefinitionRegistry;
     }
 }
