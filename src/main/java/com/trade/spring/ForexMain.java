@@ -7,8 +7,8 @@ import org.springframework.beans.factory.config.ConstructorArgumentValues;
 import org.springframework.beans.factory.support.AbstractBeanDefinition;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.support.RootBeanDefinition;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import java.util.Arrays;
 
 /**
  * Created by tiany on 2017/12/20.
@@ -24,14 +24,25 @@ public class ForexMain {
 //        ForexNewsProvider newsProvider = (ForexNewsProvider) beanFactory.getBean("djNewsProvider");
 //        newsProvider.getAndRegisterNews();
 
-        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-        ForexNewsProvider newsProvider = (ForexNewsProvider) context.getBean("forexNewsProvider");
-        newsProvider.getAndRegisterNews();
+//        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+//        ForexNewsProvider newsProvider = (ForexNewsProvider) context.getBean("forexNewsProvider");
+//        newsProvider.getAndRegisterNews();
 
         /*DefaultListableBeanFactory beanRegister = new DefaultListableBeanFactory();
         BeanFactory container = (BeanFactory)bindViaCode(beanRegister);
         ForexNewsProvider provider = (ForexNewsProvider)container.getBean("djNewsProvider");
         provider.getAndRegisterNews();*/
+        int[] str = {17842, 17883, 17904, 17917};
+        StringBuilder stringBuilder = new StringBuilder();
+        for(int i = 17815; i <= 17932; i++){
+            if(!Arrays.asList(str).contains(i)){
+                stringBuilder.append(i);
+                if(i != 17932){
+                    stringBuilder.append(";");
+                }
+            }
+        }
+        System.out.println(stringBuilder.toString());
     }
 
     public static BeanFactory bindViaCode(BeanDefinitionRegistry beanDefinitionRegistry){
