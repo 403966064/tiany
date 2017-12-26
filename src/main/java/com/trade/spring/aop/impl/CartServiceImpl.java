@@ -12,7 +12,6 @@ public class CartServiceImpl implements ICartService{
     @Override
     public void addShopping(String item) {
         itemStr.add(item);
-        System.out.println("购物车"+itemStr.toString());
-        System.out.println("添加购物车成功");
+        System.out.println("添加购物车成功"+itemStr.toString());
     }
 }
