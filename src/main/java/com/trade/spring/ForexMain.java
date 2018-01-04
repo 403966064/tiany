@@ -24,9 +24,9 @@ public class ForexMain {
 //        ForexNewsProvider newsProvider = (ForexNewsProvider) beanFactory.getBean("djNewsProvider");
 //        newsProvider.getAndRegisterNews();
 
-//        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-//        ForexNewsProvider newsProvider = (ForexNewsProvider) context.getBean("forexNewsProvider");
-//        newsProvider.getAndRegisterNews();
+        /*ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        ForexNewsProvider newsProvider = (ForexNewsProvider) context.getBean("forexNewsProvider");
+        newsProvider.getAndRegisterNews();*/
 
         /*DefaultListableBeanFactory beanRegister = new DefaultListableBeanFactory();
         BeanFactory container = (BeanFactory)bindViaCode(beanRegister);
