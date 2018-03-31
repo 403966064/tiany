@@ -10,12 +10,14 @@ public class Main {
     private static ExecutorService executor = Executors.newFixedThreadPool(50);
 
     public static void main(String[] args) {
+       ReentrantLock reentrantLock = new ReentrantLock();
         for(int i = 0; i <100; i++) {
             executor.submit(new Runnable() {
                 public void run() {
-                    new Synchronized().doSomeThing();
+                    System.out.println(reentrantLock.lock());
                 }
             });
         }
+
     }
 }
