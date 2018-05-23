@@ -1,6 +1,6 @@
 public class JavaMain {
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         String str = "";
         switch (str){
             case "1" :
@@ -8,5 +8,8 @@ public class JavaMain {
             default:
                 System.out.println("默认");
         }
-    }
+    }*/
+
+
+
 }
